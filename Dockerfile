@@ -44,7 +44,7 @@ RUN a2enmod rewrite headers
 COPY . ${APP_ROOT_PATH}
 
 # Copy PHP config
-# COPY php8.1.ini ${PHP_INI_DIR}/php.ini
+COPY php8.2.ini ${PHP_INI_DIR}/php.ini
 
 WORKDIR ${APP_ROOT_PATH}
 
