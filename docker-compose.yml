@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    volumes:
+      - ./.data/apache2/log:/var/log/apache2
+      - .:/var/www/html:cached
+    ports:
+      - ${APACHE2_PORT}:80
+  mysql:
+    image: nguyenrazona/mysql
+    platform: linux/x86_64
+    volumes:
+      - ./.data/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    expose:
+      - 3306
+  phpmyadmin:
+    image: nguyenrazona/phpmyadmin
+    platform: linux/x86_64
+    environment:
+      - PMA_HOST=${PMA_HOST}
+      - PMA_PORT=${PMA_PORT}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    ports:
+      - ${PHPMYADMIN_PORT}:80
+    depends_on:
+      - mysql
