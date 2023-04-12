@@ -14,8 +14,5 @@ yarn-error.log
 /.idea
 /.data/**/*
 !/.data/**/.gitkeep
-/public/mix-manifest.json
-/public/css/app.css
-/public/js/app.js
 /_bk
 upload.sh
