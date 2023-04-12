@@ -13,31 +13,36 @@ const env = require('dotenv').config({ path: './.env' }).parsed
  |
  */
 
-// Disable generating xxx.LICENSE.txt file
-mix.options({
-  terser: {
-    extractComments: false,
-  },
-})
-
-// Disable OS notification
-mix.disableNotifications()
-
 // Compile JS and CSS
 mix
   .js('resources/js/app.js', `public/js`)
-  .sass('resources/scss/app.scss', `public/css`, [])
+  // Extract vendor modules
+  .extract()
+  .sass('resources/scss/app.scss', `public/css`)
   .options({
+    // Disable generating xxx.LICENSE.txt file
+    terser: {
+      extractComments: false,
+    },
+    autoprefixer: {
+      options: {
+        // Enable CSS grid layout
+        grid: true,
+      },
+    },
     processCssUrls: false,
-    postCss: [tailwindcss('./tailwind.config.js')],
+    postCss: [tailwindcss],
   })
   // Generate manifest file to clear browser cache on updating js, css files
   .version()
-
-// Autoreload browser on updating files
-mix.browserSync({
-  proxy: 'http://localhost:' + env.APACHE2_PORT,
-  port: env.BROWSERSYNC_PORT,
-  notify: false,
-  startPath: '/',
-})
+  // Disable OS notification
+  .disableNotifications()
+  // Autoreload browser on updating files
+  .browserSync({
+    proxy: 'http://localhost:' + env.APACHE2_PORT,
+    port: env.BROWSERSYNC_PORT,
+    ui: false,
+    notify: false,
+    open: false,
+    startPath: '/',
+  })
