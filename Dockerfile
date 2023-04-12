@@ -1,4 +1,4 @@
-FROM php:8.1-apache
+FROM php:8.2-apache
 
 # Install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -44,7 +44,7 @@ RUN a2enmod rewrite headers
 COPY . ${APP_ROOT_PATH}
 
 # Copy PHP config
-COPY php8.1.ini ${PHP_INI_DIR}/php.ini
+# COPY php8.1.ini ${PHP_INI_DIR}/php.ini
 
 WORKDIR ${APP_ROOT_PATH}
 
