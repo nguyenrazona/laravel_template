@@ -8,7 +8,8 @@
 - Vite for Laravel version >= 9
 - Sass or scss with autoprefixer
 - Taiwindcss
-- Laravel breeze for user login and authentication
+- Laravel Breeze for user login and authentication
+- Laravel Debug Bar
 
 ## Branches
 - php74: Laravel 8 for PHP 7.4
