@@ -22,5 +22,5 @@
 ```
 cp .env.example .env
 npm i
-npm run start
+npm start
 ```
