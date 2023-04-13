@@ -404,9 +404,6 @@
   </style>
 
   <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
-  <script src="{{ mix('/js/manifest.js') }}"></script>
-  <script src="{{ mix('/js/vendor.js') }}"></script>
-  <script src="{{ mix('/js/app.js') }}"></script>
 </head>
 
 <body class="antialiased">
@@ -414,7 +411,7 @@
     @if (Route::has('login'))
       <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
         @auth
-          <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+          <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
         @else
           <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
@@ -528,5 +525,9 @@
     </div>
   </div>
 </body>
+
+<script src="{{ mix('/js/manifest.js') }}"></script>
+<script src="{{ mix('/js/vendor.js') }}"></script>
+<script src="{{ mix('/js/app.js') }}"></script>
 
 </html>
