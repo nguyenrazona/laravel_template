@@ -15,3 +15,4 @@
 - php80: Laravel 9 for PHP 8.0
 - php81: Laravel 10 for PHP 8.1
 - php82: Laravel 10 for PHP 8.2
+- main: merge from "php74" branch
