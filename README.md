@@ -17,3 +17,10 @@
 - php81: Laravel 10 for PHP 8.1
 - php82: Laravel 10 for PHP 8.2
 - main: merge from "php74" branch
+
+## Development steps
+```
+cp .env.example .env
+npm i
+npm run start
+```
