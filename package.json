@@ -5,6 +5,7 @@
     "start": "run-s up dev",
     "up": "docker compose up -d",
     "down": "docker compose down",
+    "bash": "docker compose exec app bash",
     "db": "docker compose exec app php artisan migrate:fresh --seed",
     "dev": "mix watch",
     "build": "mix --production",
