@@ -1,4 +1,5 @@
 {
+  "name": "laravel_template",
   "private": true,
   "scripts": {
     "start": "run-s up dev",
