@@ -1,4 +1,5 @@
 # LARAVEL TEMPLATES
+- Test
 
 ## Feature support
 - Laravel 8 for PHP 7.4
